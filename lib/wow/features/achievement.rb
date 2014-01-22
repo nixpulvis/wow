@@ -1,6 +1,5 @@
 module WoW
   class Achievement < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/achievement"
 
     def initialize(id, params = {})

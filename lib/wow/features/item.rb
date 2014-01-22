@@ -1,6 +1,5 @@
 module WoW
   class Item < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/item"
 
     def initialize(id, params = {})

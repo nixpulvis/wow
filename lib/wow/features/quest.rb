@@ -1,6 +1,5 @@
 module WoW
   class Quest < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/quest"
 
     def initialize(id, params = {})

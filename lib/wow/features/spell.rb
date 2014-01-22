@@ -1,6 +1,5 @@
 module WoW
   class Spell < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/spell"
 
     def initialize(id, params = {})

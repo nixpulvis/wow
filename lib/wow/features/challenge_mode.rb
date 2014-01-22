@@ -1,8 +1,7 @@
 module WoW
   module ChallengeMode
 
-    class Realm
-      include HTTParty
+    class Realm < Base
       base_uri "#{WoW.host}/api/wow/challenge"
 
       def initialize(realm, params = {})

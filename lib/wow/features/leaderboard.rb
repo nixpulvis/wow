@@ -1,6 +1,5 @@
 module WoW
   class Leaderboard < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/leaderboard"
 
     def initialize(bracket, params = {})

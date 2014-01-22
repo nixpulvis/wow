@@ -1,5 +1,8 @@
+require "cgi"
+
 module WoW
   class Base < Hash
+    include HTTParty
 
     def initialize(data)
       data.each { |k,v| self[k] = v }

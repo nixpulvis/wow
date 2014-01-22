@@ -1,6 +1,5 @@
 module WoW
   class Guild < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/guild"
 
     def initialize(realm, guild_name, fields = [], params = {})

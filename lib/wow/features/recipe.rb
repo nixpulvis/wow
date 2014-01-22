@@ -1,6 +1,5 @@
 module WoW
   class Recipe < Base
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/recipe"
 
     def initialize(id, params = {})

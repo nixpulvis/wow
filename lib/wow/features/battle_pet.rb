@@ -2,7 +2,6 @@ module WoW
   module BattlePet
 
     class Ability < Base
-      include HTTParty
       base_uri "#{WoW.host}/api/wow/battlePet/ability"
 
       def initialize(id, params = {})
@@ -18,7 +17,6 @@ module WoW
     end
 
     class Species < Base
-      include HTTParty
       base_uri "#{WoW.host}/api/wow/battlePet/species"
 
       def initialize(id, params = {})
@@ -34,7 +32,6 @@ module WoW
     end
 
     class Stats < Base
-      include HTTParty
       base_uri "#{WoW.host}/api/wow/battlePet/stats"
 
       # This API accepts optional parameters.

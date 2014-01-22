@@ -14,7 +14,6 @@ module WoW
       11 => :druid,
     }
 
-    include HTTParty
     base_uri "#{WoW.host}/api/wow/character"
 
     def initialize(realm, character_name, fields = [], params = {})
@@ -34,7 +33,8 @@ module WoW
     class << self
       def data(realm, character_name, params = {})
         params.merge!({locale: WoW.locale})
-        get("/#{realm}/#{character_name}", query: params).parsed_response
+        get("/#{CGI::escape(realm)}/#{CGI::escape(character_name)}",
+          query: params).parsed_response
       end
     end
   end
