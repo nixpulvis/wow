@@ -12,13 +12,18 @@ module WoW
       end
     end
 
-    def [](key)
-      super(key.to_sym)
+    def gets
+      private_methods.select { |m| m =~ /get_/ }.map do |name|
+        name.to_s.gsub(/get_/, "")
+      end
     end
 
-    def []=(key, value)
-      super(key.to_sym, value)
+    def get(method)
+      self.send("get_#{method}")
     end
 
+    def get?(method)
+      gets.include?(method)
+    end
   end
 end

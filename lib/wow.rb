@@ -6,6 +6,7 @@ require 'wow/base'
 module WoW
   class ConfigurationError < StandardError; end
   class APIError < StandardError; end
+  class FieldMissingError < StandardError; end
 
   # Blizzard defined hosts, and locales.
   # See http://blizzard.github.io/api-wow-docs/#features/access-and-regions
