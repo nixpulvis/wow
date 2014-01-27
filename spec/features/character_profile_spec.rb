@@ -33,6 +33,18 @@ describe WoW::CharacterProfile do
         WoW::CharacterProfile.new("Notaserver", "Imnotaguyatalllolplz")
       }.to raise_error
     end
+
+    it "raises WoW::APIError when given nil or server" do
+      expect {
+        WoW::CharacterProfile.new(nil, "Imnotaguyatalllolplz")
+      }.to raise_error(WoW::APIError)
+    end
+
+    it "raises WoW::APIError when given blank or server" do
+      expect {
+        WoW::CharacterProfile.new("", "Imnotaguyatalllolplz")
+      }.to raise_error(WoW::APIError)
+    end
   end
 
   describe "#lookup" do

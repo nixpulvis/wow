@@ -17,6 +17,13 @@ module WoW
     base_uri "#{WoW.host}/api/wow/character"
 
     def initialize(realm, character_name, fields = [], params = {})
+      if realm.to_s.empty?
+        raise WoW::APIError.new "Realm cannot be blank"
+      end
+      if character_name.to_s.empty?
+        raise WoW::APIError.new "Character name cannot be blank"
+      end
+
       params = params.merge({fields: fields.join(',')})
       super(self.class.data(realm, character_name, params))
     end
