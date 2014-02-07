@@ -25,7 +25,13 @@ module WoW
       end
 
       params = params.merge({fields: fields.join(',')})
-      super(self.class.data(realm, character_name, params))
+      data = self.class.data(realm, character_name, params)
+
+      if data.empty?
+        raise APIError, "Character not active."
+      end
+
+      super(data)
     end
 
     class << self
